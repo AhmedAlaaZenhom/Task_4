@@ -47,17 +47,19 @@ public class MyAdapter extends  RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     public class MyViewHolder extends RecyclerView.ViewHolder{
 
 
-        TextView nameTextView , ageTextView ;
+        TextView nameTextView , ageTextView , personFirstLetterTextView;
         //in the constructor we initiate the designed cell view elements using the passed View object parameter
         public MyViewHolder(View v) {
             super(v);
             nameTextView = (TextView) v.findViewById(R.id.nameTextView) ;
             ageTextView = (TextView) v.findViewById(R.id.ageTextView) ;
+            personFirstLetterTextView = (TextView) v.findViewById(R.id.personFirstLetterTextView) ;
         }
         //binding data of each object to the cell's view elements
         public void bindData( PersonClass obj){
             nameTextView.setText("Name: "+obj.getFirstName().trim()+" "+obj.getLastName().trim());
             ageTextView.setText("Age: "+String.valueOf(obj.getAge()));
+            personFirstLetterTextView.setText(String.valueOf(Character.toUpperCase(obj.getFirstName().charAt(0))));
         }
     }
 
